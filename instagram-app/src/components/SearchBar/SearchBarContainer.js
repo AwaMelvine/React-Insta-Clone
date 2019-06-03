@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Logo from "./Logo";
 
 const propTypes = {
   src: PropTypes.string.isRequired,
@@ -9,7 +10,7 @@ const propTypes = {
 
 const SearchBarContainer = ({ src, alt, text }) => (
   <div className="search-bar-container">
-    <Logo />
+    <Logo src={src} alt={alt} text={text} />
     <SearchInput />
     <UserNavItems />
   </div>
