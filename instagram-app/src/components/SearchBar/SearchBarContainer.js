@@ -2,22 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
+import UserNavItems from "./UserNavItems";
 
-const propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  searchText: PropTypes.string,
-};
-
-const SearchBarContainer = ({ src, alt, text }) => (
+const SearchBarContainer = ({ text }) => (
   <div className="search-bar-container">
-    <Logo src={src} alt={alt} text={text} />
+    <Logo text={text} />
     <SearchInput />
     <UserNavItems />
   </div>
 );
 
-SearchBarContainer.propTypes = propTypes;
+SearchBarContainer.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  searchText: PropTypes.string
+};
 
 export default SearchBarContainer;

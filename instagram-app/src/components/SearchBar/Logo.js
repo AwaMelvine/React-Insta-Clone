@@ -1,15 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FiInstagram } from "react-icons/fi";
 
 const propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 };
 
-const Logo = ({ src, alt, text }) => (
+const Logo = ({ text }) => (
   <div className="logo">
-    <img src={src} alt={alt} />
+    <FiInstagram />
     <span />
     <h1>{text}</h1>
   </div>
