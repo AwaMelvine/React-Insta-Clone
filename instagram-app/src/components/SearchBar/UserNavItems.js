@@ -4,9 +4,15 @@ import { FiUser } from "react-icons/fi";
 
 const UserNavItems = () => (
   <div className="user-nav-items">
-    <TiCompass />
-    <TiHeartOutline />
-    <FiUser />
+    <div className="compoass">
+      <TiCompass />
+    </div>
+    <div className="heart">
+      <TiHeartOutline />
+    </div>
+    <div className="user">
+      <FiUser />
+    </div>
   </div>
 );
 

@@ -8,7 +8,10 @@ const propTypes = {
 
 const Logo = ({ text }) => (
   <div className="logo">
-    <FiInstagram />
+    <div className="logo-img">
+      <FiInstagram size={"1.6rem"} />
+    </div>
+
     <span />
     <h1>{text}</h1>
   </div>
