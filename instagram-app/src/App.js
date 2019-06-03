@@ -14,10 +14,13 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    console.log(dummyData.map(post => ({ ...post, id: uuidv1() })));
-    this.setState({
-      posts: dummyData.map(post => ({ ...post, id: uuidv1() }))
-    });
+    const posts = dummyData.map(post => ({
+      ...post,
+      id: uuidv1(),
+      comments: post.comments.map(comment => ({ ...comment, id: uuidv1() }))
+    }));
+
+    this.setState({ posts });
   }
   render() {
     const { posts } = this.state;

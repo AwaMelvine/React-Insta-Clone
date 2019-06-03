@@ -1,13 +1,14 @@
 import React from "react";
-import uuidv1 from "uuid/v1";
 import Comment from "./Comment";
+import CommentForm from "./CommentForm";
 
-const PostComments = ({ comments, date }) => (
+const PostComments = ({ comments, date, commentText }) => (
   <div className="post-comments">
     {comments.map(comment => (
-      <Comment key={uuidv1()} comment={comment} />
+      <Comment key={comment.id} comment={comment} />
     ))}
     <p className="date">{date}</p>
+    <CommentForm commentText={commentText} />
   </div>
 );
 
