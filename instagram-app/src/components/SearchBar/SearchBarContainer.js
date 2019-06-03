@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Logo from "./Logo";
+import SearchInput from "./SearchInput";
 
 const propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  searchText: PropTypes.string,
 };
 
 const SearchBarContainer = ({ src, alt, text }) => (
