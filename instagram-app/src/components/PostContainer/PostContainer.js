@@ -13,7 +13,8 @@ const PostContainer = ({ post }) => (
       imageAlt={post.imageAlt}
       likes={post.likes}
     />
-    <PostComments comments={post.comments} />
+    <PostComments date={post.timestamp} comments={post.comments} />
+    
   </div>
 );
 

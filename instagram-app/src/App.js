@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import uuidv1 from "uuid/v1";
 import dummyData from "./dummy-data";
 import SearchBarContainer from "./components/SearchBar/SearchBarContainer";
 import PostList from "./components/PostContainer/PostList";
@@ -13,7 +14,10 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    this.setState({ posts: dummyData });
+    console.log(dummyData.map(post => ({ ...post, id: uuidv1() })));
+    this.setState({
+      posts: dummyData.map(post => ({ ...post, id: uuidv1() }))
+    });
   }
   render() {
     const { posts } = this.state;

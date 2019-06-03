@@ -57,3 +57,6 @@
 .post-list .post .post-comments .comment p span {
   font-weight: bold;
 }
+.date {
+  color: #c1c1c1;
+}

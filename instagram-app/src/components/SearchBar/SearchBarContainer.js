@@ -14,8 +14,6 @@ const SearchBarContainer = ({ text }) => (
 );
 
 SearchBarContainer.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   searchText: PropTypes.string
 };

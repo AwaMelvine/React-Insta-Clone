@@ -7,7 +7,7 @@ function PostList({ posts }) {
   return (
     <div className="post-list">
       {posts.map(post => (
-        <PostContainer key={post.username} post={post} />
+        <PostContainer key={post.id} post={post} />
       ))}
     </div>
   );
