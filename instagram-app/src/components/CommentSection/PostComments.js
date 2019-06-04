@@ -7,27 +7,38 @@ class PostComments extends Component {
     super(props);
 
     this.state = {
-      comments: this.props.comments
+      comments: this.props.comments,
+      commentText: ""
     };
   }
   componentWillReceiveProps(nextProps) {
-    this.setState({ comments: nextProps.comments });
+    this.setState({ comments: nextProps.comments, commentText: "" });
   }
 
   addNewComment = (event, postId, text) => {
     event.preventDefault();
     this.props.handleSubmitComment(postId, text);
   };
+
+  handleCommentChange = event => {
+    this.setState({ ...this.state, commentText: event.target.value });
+  };
+
   render() {
     const { date, postId } = this.props;
-    const { comments } = this.state;
+    const { comments, commentText } = this.state;
     return (
       <div className="post-comments">
         {comments.map(comment => (
           <Comment key={comment.id} comment={comment} />
         ))}
         <p className="date">{date}</p>
-        <CommentForm postId={postId} addNewComment={this.addNewComment} />
+        <CommentForm
+          postId={postId}
+          commentText={commentText}
+          addNewComment={this.addNewComment}
+          handleCommentChange={this.handleCommentChange}
+        />
       </div>
     );
   }
