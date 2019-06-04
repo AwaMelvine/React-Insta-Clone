@@ -19,6 +19,7 @@ class App extends Component {
     const posts = dummyData.map(post => ({
       ...post,
       id: uuidv1(),
+      display: true,
       comments: post.comments.map(comment => ({ ...comment, id: uuidv1() }))
     }));
 
@@ -61,11 +62,31 @@ class App extends Component {
       })
     });
   };
+  handleSearchInput = async event => {
+    await this.setState({
+      ...this.state,
+      posts: this.state.posts.map(post => {
+        if (!post.username.includes(event.target.value)) {
+          return {
+            ...post,
+            display: false
+          };
+        }
+        return {
+          ...post,
+          display: true
+        };
+      })
+    });
+  };
   render() {
     const { posts } = this.state;
     return (
       <div className="App">
-        <SearchBarContainer text="Instagram" />
+        <SearchBarContainer
+          text="Instagram"
+          handleSearchInput={this.handleSearchInput}
+        />
         <PostList
           posts={posts}
           handleSubmitComment={this.handleSubmitComment}

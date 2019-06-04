@@ -5,10 +5,10 @@ import SearchInput from "./SearchInput";
 import UserNavItems from "./UserNavItems";
 import "./SearchBar.css";
 
-const SearchBarContainer = ({ text }) => (
+const SearchBarContainer = ({ text, handleSearchInput }) => (
   <div className="search-bar-container">
     <Logo text={text} />
-    <SearchInput />
+    <SearchInput handleSearchInput={handleSearchInput} />
     <UserNavItems />
   </div>
 );

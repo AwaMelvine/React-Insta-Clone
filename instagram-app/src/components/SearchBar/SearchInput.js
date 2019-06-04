@@ -5,9 +5,14 @@ const propTypes = {
   searchText: PropTypes.string
 };
 
-const SearchInput = ({ searchText }) => (
+const SearchInput = ({ searchText, handleSearchInput }) => (
   <div className="search-input">
-    <input type="text" placeholder="Search" value={searchText} />
+    <input
+      type="text"
+      placeholder="Search"
+      value={searchText}
+      onChange={event => handleSearchInput(event)}
+    />
   </div>
 );
 
