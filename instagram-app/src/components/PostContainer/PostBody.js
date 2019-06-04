@@ -36,13 +36,13 @@ const PostBody = ({
 
 PostBody.propTypes = {
   thumbnailUrl: PropTypes.string.isRequired,
-  thumbnailAlt: PropTypes.string.isRequired,
+  thumbnailAlt: PropTypes.string,
   username: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string.isRequired,
-  likes: PropTypes.string,
+  imageAlt: PropTypes.string,
+  likes: PropTypes.number,
   handleLikePost: PropTypes.func.isRequired,
-  postId: PropTypes.string.isRequired,
+  postId: PropTypes.string.isRequired
 };
 
 export default PostBody;
