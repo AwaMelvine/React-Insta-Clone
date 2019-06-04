@@ -22,32 +22,33 @@ class App extends Component {
       comments: post.comments.map(comment => ({ ...comment, id: uuidv1() }))
     }));
 
-    this.setState({ posts });
+    this.setState({ ...this.state, posts });
   }
 
-  handleSubmitComment = (event, postId, commentText) => {
-    event.preventDefault();
+  handleSubmitComment = async (postId, commentText) => {
     const { username } = this.state;
 
-    this.setState({
+    await this.setState({
       posts: this.state.posts.map(post => {
         if (post.id === postId) {
           const newComment = {
             id: uuidv1(),
-            username: username,
-            text: commentText
+            text: commentText,
+            username: username
           };
-          return {
+          const updatedPost = {
             ...post,
             comments: [...post.comments, newComment]
           };
+          return updatedPost;
         }
         return post;
-      })
+      }),
+      commentText: ""
     });
   };
   render() {
-    const { posts, commentText } = this.state;
+    const { posts } = this.state;
     return (
       <div className="App">
         <SearchBarContainer text="Instagram" />

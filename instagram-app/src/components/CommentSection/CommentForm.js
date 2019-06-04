@@ -12,13 +12,13 @@ class CommentForm extends Component {
     this.setState({ ...this.state, commentText: event.target.value });
   };
   render() {
-    const { handleSubmitComment, postId } = this.props;
+    const { addNewComment, postId } = this.props;
     const { commentText } = this.state;
     return (
       <div className="comment-form">
         <form
           method="post"
-          onSubmit={event => handleSubmitComment(event, postId, commentText)}
+          onSubmit={event => addNewComment(event, postId, commentText)}
         >
           <input
             type="text"
