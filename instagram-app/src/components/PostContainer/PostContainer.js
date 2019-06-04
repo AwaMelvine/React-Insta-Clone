@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PostBody from "./PostBody";
-import PostComments from "./PostComments";
+import PostComments from "../CommentSection/PostComments";
 
-const PostContainer = ({
-  post,
-  handleSubmitComment
-}) => (
+const PostContainer = ({ post, handleSubmitComment }) => (
   <div className="post">
     <PostBody
       thumbnailUrl={post.thumbnailUrl}
