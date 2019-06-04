@@ -9,7 +9,9 @@ const PostBody = ({
   username,
   imageUrl,
   imageAlt,
-  likes
+  likes,
+  handleLikePost,
+  postId
 }) => (
   <div className="post-body">
     <div className="user-info">
@@ -21,7 +23,7 @@ const PostBody = ({
     <div className="post-info">
       <div className="icons">
         <div className="heart">
-          <TiHeartOutline />
+          <TiHeartOutline onClick={() => handleLikePost(postId)} />
         </div>
         <div className="comments">
           <FiMessageCircle />

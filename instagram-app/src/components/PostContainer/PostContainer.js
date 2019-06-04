@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PostBody from "./PostBody";
 import PostComments from "../CommentSection/PostComments";
 
-const PostContainer = ({ post, handleSubmitComment }) => (
+const PostContainer = ({ post, handleSubmitComment, handleLikePost }) => (
   <div className="post">
     <PostBody
       thumbnailUrl={post.thumbnailUrl}
@@ -12,6 +12,8 @@ const PostContainer = ({ post, handleSubmitComment }) => (
       imageUrl={post.imageUrl}
       imageAlt={post.imageAlt}
       likes={post.likes}
+      handleLikePost={handleLikePost}
+      postId={post.id}
     />
     <PostComments
       date={post.timestamp}

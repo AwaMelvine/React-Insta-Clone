@@ -47,6 +47,20 @@ class App extends Component {
       commentText: ""
     });
   };
+  handleLikePost = postId => {
+    this.setState({
+      ...this.state,
+      posts: this.state.posts.map(post => {
+        if (post.id === postId) {
+          return {
+            ...post,
+            likes: post.likes * 1 + 1
+          };
+        }
+        return post;
+      })
+    });
+  };
   render() {
     const { posts } = this.state;
     return (
@@ -55,6 +69,7 @@ class App extends Component {
         <PostList
           posts={posts}
           handleSubmitComment={this.handleSubmitComment}
+          handleLikePost={this.handleLikePost}
         />
       </div>
     );
