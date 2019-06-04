@@ -15,7 +15,7 @@ const SearchBarContainer = ({ text, handleSearchInput }) => (
 
 SearchBarContainer.propTypes = {
   text: PropTypes.string.isRequired,
-  searchText: PropTypes.string
+  searchText: PropTypes.string.isRequired
 };
 
 export default SearchBarContainer;

@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const propTypes = {
-  searchText: PropTypes.string
+  searchText: PropTypes.string.isRequired,
+  handleSearchInput: PropTypes.func.isRequired
 };
 
 const SearchInput = ({ searchText, handleSearchInput }) => (
