@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
 import uuidv1 from "uuid/v1";
+import Fuse from "fuse.js";
+import "./App.css";
 import dummyData from "./dummy-data";
 import SearchBarContainer from "./components/SearchBar/SearchBarContainer";
 import PostList from "./components/PostContainer/PostList";
@@ -72,19 +73,33 @@ class App extends Component {
     await localStorage.setItem("posts", JSON.stringify(this.state.posts));
   };
   handleSearchInput = async event => {
+    const options = {
+      shouldSort: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      minMatchCharLength: 1,
+      keys: ["username"]
+    };
+    const fuse = new Fuse(this.state.posts, options); // "list" is the item array
+    const result =
+      event.target.value === ""
+        ? this.state.posts
+        : fuse.search(event.target.value);
+
     await this.setState({
       ...this.state,
       posts: this.state.posts.map(post => {
-        if (!post.username.includes(event.target.value)) {
+        const resultIds = result.map(res => res.id);
+
+        if (!resultIds.includes(post.id)) {
           return {
             ...post,
             display: false
           };
         }
-        return {
-          ...post,
-          display: true
-        };
+        return { ...post, display: true };
       })
     });
   };
