@@ -32,6 +32,18 @@ const PostContainer = ({
     </div>
   );
 };
-PostContainer.propTypes = {};
+PostContainer.propTypes = {
+  post: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    thumbnailUrl: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    likes: PropTypes.number,
+    timestamp: PropTypes.string.isRequired,
+    comments: PropTypes.array
+  }).isRequired,
+  handleSubmitComment: PropTypes.func.isRequired,
+  handleDeleteComment: PropTypes.func.isRequired,
+  handleLikePost: PropTypes.func.isRequired
+};
 
 export default PostContainer;

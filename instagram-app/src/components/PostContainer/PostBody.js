@@ -34,6 +34,15 @@ const PostBody = ({
   </div>
 );
 
-PostBody.propTypes = {};
+PostBody.propTypes = {
+  thumbnailUrl: PropTypes.string.isRequired,
+  thumbnailAlt: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string.isRequired,
+  likes: PropTypes.string,
+  handleLikePost: PropTypes.func.isRequired,
+  postId: PropTypes.string.isRequired,
+};
 
 export default PostBody;
