@@ -88,6 +88,21 @@ class App extends Component {
       })
     });
   };
+  handleDeleteComment = async (postId, commentId) => {
+    await this.setState({
+      ...this.state,
+      posts: this.state.posts.map(post => {
+        if (post.id === postId) {
+          return {
+            ...post,
+            comments: post.comments.filter(comment => comment.id !== commentId)
+          };
+        }
+        return post;
+      })
+    });
+    await localStorage.setItem("posts", JSON.stringify(this.state.posts));
+  };
   render() {
     const { posts } = this.state;
     return (
@@ -99,6 +114,7 @@ class App extends Component {
         <PostList
           posts={posts}
           handleSubmitComment={this.handleSubmitComment}
+          handleDeleteComment={this.handleDeleteComment}
           handleLikePost={this.handleLikePost}
         />
       </div>

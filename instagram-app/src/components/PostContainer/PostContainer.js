@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import PostBody from "./PostBody";
 import PostComments from "../CommentSection/PostComments";
 
-const PostContainer = ({ post, handleSubmitComment, handleLikePost }) => {
+const PostContainer = ({
+  post,
+  handleSubmitComment,
+  handleDeleteComment,
+  handleLikePost
+}) => {
   const dispStyle = !post.display ? "none" : "block";
   return (
     <div className="post" style={{ display: dispStyle }}>
@@ -22,6 +27,7 @@ const PostContainer = ({ post, handleSubmitComment, handleLikePost }) => {
         postId={post.id}
         comments={post.comments}
         handleSubmitComment={handleSubmitComment}
+        handleDeleteComment={handleDeleteComment}
       />
     </div>
   );

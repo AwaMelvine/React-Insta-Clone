@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
+import "./CommentSection.css";
 
 class PostComments extends Component {
   constructor(props) {
@@ -30,7 +31,12 @@ class PostComments extends Component {
     return (
       <div className="post-comments">
         {comments.map(comment => (
-          <Comment key={comment.id} comment={comment} />
+          <Comment
+            key={comment.id}
+            postId={postId}
+            comment={comment}
+            handleDeleteComment={this.props.handleDeleteComment}
+          />
         ))}
         <p className="date">{date}</p>
         <CommentForm
