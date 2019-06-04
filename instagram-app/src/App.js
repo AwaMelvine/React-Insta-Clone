@@ -15,15 +15,22 @@ class App extends Component {
       commentText: ""
     };
   }
-  componentDidMount() {
+  async componentDidMount() {
     const posts = dummyData.map(post => ({
       ...post,
       id: uuidv1(),
       display: true,
       comments: post.comments.map(comment => ({ ...comment, id: uuidv1() }))
     }));
+    const postsData = localStorage.getItem("posts");
+    const savedPosts = JSON.parse(postsData);
 
-    this.setState({ ...this.state, posts });
+    await this.setState({
+      ...this.state,
+      posts: savedPosts.length > 0 ? savedPosts : posts
+    });
+
+    await localStorage.setItem("posts", JSON.stringify(this.state.posts));
   }
 
   handleSubmitComment = async (postId, commentText) => {
@@ -47,9 +54,10 @@ class App extends Component {
       }),
       commentText: ""
     });
+    await localStorage.setItem("posts", JSON.stringify(this.state.posts));
   };
-  handleLikePost = postId => {
-    this.setState({
+  handleLikePost = async postId => {
+    await this.setState({
       ...this.state,
       posts: this.state.posts.map(post => {
         if (post.id === postId) {
@@ -61,6 +69,7 @@ class App extends Component {
         return post;
       })
     });
+    await localStorage.setItem("posts", JSON.stringify(this.state.posts));
   };
   handleSearchInput = async event => {
     await this.setState({
