@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import "./CommentSection.css";
@@ -49,4 +50,11 @@ class PostComments extends Component {
     );
   }
 }
+PostComments.propTypes = {
+  date: PropTypes.string.isRequired,
+  postId: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired,
+  handleSubmitComment: PropTypes.func.isRequired,
+  handleDeleteComment: PropTypes.func.isRequired
+};
 export default PostComments;

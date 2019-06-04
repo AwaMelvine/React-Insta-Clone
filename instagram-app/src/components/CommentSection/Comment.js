@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Comment = ({ postId, comment, handleDeleteComment }) => {
   return (
@@ -14,6 +15,14 @@ const Comment = ({ postId, comment, handleDeleteComment }) => {
       </p>
     </div>
   );
+};
+
+Comment.propTypes = {
+  postId: PropTypes.string.isRequired,
+  comment: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default Comment;
