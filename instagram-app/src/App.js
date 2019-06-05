@@ -4,6 +4,9 @@ import Fuse from "fuse.js";
 import "./App.css";
 import dummyData from "./dummy-data";
 import PostsPage from "./components/PostContainer/PostsPage";
+import withAuthenticate from "./components/authentication/withAuthenticate";
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
 
 class App extends Component {
   constructor(props) {
@@ -120,7 +123,7 @@ class App extends Component {
   render() {
     const { posts } = this.state;
     return (
-      <PostsPage
+      <ComponentFromWithAuthenticate
         text="Instagram"
         handleSearchInput={this.handleSearchInput}
         posts={posts}
