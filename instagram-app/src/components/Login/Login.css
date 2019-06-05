@@ -14,3 +14,11 @@ form button {
   font-size: 1.2rem;
   outline: none;
 }
+
+.failure {
+  color: red;
+}
+
+.success {
+  color: green;
+}

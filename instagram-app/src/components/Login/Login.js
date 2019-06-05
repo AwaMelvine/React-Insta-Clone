@@ -6,8 +6,12 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      username: "",
-      password: ""
+      data: {
+        username: "",
+        password: ""
+      },
+      message: "",
+      msgClass: ""
     };
   }
   handleChage = event =>
@@ -18,14 +22,28 @@ class Login extends React.Component {
     const { username, password } = this.state;
     if (username === "Awa" && password === "melvine") {
       await localStorage.setItem("username", username);
-      window.location.reload();
+      await this.setState({
+        ...this.state,
+        message: "Login Success!!! Redirecting...",
+        msgClass: "success"
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } else {
+      this.setState({
+        ...this.state,
+        message: "Wrong credentials",
+        msgClass: "failure"
+      });
     }
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, message, msgClass } = this.state;
     return (
       <form onSubmit={event => this.login(event)}>
+        <p className={msgClass}>{message}</p>
         <input
           type="text"
           name="username"
