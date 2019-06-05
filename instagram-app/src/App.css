@@ -7,3 +7,7 @@ body {
   padding: 0px;
   background-color: #fafafa;
 }
+
+.hide {
+  display: none;
+}

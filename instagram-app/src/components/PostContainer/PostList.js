@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import PostContainer from "./PostContainer";
 import "./PostContainer.css";
 
-function PostList({ posts, handleSubmitComment }) {
+function PostList({
+  posts,
+  handleSubmitComment,
+  handleDeleteComment,
+  handleLikePost
+}) {
   return (
     <div className="post-list">
       {posts.map(post => (
@@ -11,6 +16,8 @@ function PostList({ posts, handleSubmitComment }) {
           key={post.id}
           post={post}
           handleSubmitComment={handleSubmitComment}
+          handleDeleteComment={handleDeleteComment}
+          handleLikePost={handleLikePost}
         />
       ))}
     </div>

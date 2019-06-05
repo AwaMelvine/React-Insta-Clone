@@ -9,7 +9,9 @@ const PostBody = ({
   username,
   imageUrl,
   imageAlt,
-  likes
+  likes,
+  handleLikePost,
+  postId
 }) => (
   <div className="post-body">
     <div className="user-info">
@@ -21,7 +23,7 @@ const PostBody = ({
     <div className="post-info">
       <div className="icons">
         <div className="heart">
-          <TiHeartOutline />
+          <TiHeartOutline onClick={() => handleLikePost(postId)} />
         </div>
         <div className="comments">
           <FiMessageCircle />
@@ -32,6 +34,15 @@ const PostBody = ({
   </div>
 );
 
-PostBody.propTypes = {};
+PostBody.propTypes = {
+  thumbnailUrl: PropTypes.string.isRequired,
+  thumbnailAlt: PropTypes.string,
+  username: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string,
+  likes: PropTypes.number,
+  handleLikePost: PropTypes.func.isRequired,
+  postId: PropTypes.string.isRequired
+};
 
 export default PostBody;

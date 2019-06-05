@@ -1,0 +1,11 @@
+.comment {
+  position: relative;
+}
+.comment .delete {
+  position: absolute;
+  right: 5px;
+  color: #5f3131;
+}
+.comment .delete:hover {
+  cursor: pointer;
+}
