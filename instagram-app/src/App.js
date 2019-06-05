@@ -5,6 +5,7 @@ import "./App.css";
 import dummyData from "./dummy-data";
 import PostsPage from "./components/PostContainer/PostsPage";
 import withAuthenticate from "./components/authentication/withAuthenticate";
+import Login from "./components/Login/Login";
 
 class App extends Component {
   constructor(props) {
@@ -120,7 +121,7 @@ class App extends Component {
   };
   render() {
     const { posts } = this.state;
-    const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+    const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
     return (
       <ComponentFromWithAuthenticate

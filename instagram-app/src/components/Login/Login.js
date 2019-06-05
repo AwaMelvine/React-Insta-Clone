@@ -13,11 +13,12 @@ class Login extends React.Component {
   handleChage = event =>
     this.setState({ ...this.state, [event.target.name]: event.target.value });
 
-  login = event => {
+  login = async event => {
     event.preventDefault();
     const { username, password } = this.state;
-    if (username === "Awa" || password === "melvine") {
-      localStorage.setItem("isAuthed", true);
+    if (username === "Awa" && password === "melvine") {
+      await localStorage.setItem("username", username);
+      window.location.reload();
     }
   };
 
