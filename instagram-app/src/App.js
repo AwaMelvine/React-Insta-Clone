@@ -13,7 +13,7 @@ class App extends Component {
 
     this.state = {
       posts: [],
-      username: "Awa",
+      username: "",
       commentText: ""
     };
   }
@@ -29,7 +29,8 @@ class App extends Component {
 
     await this.setState({
       ...this.state,
-      posts: savedPosts ? savedPosts : posts
+      posts: savedPosts ? savedPosts : posts,
+      username: localStorage.getItem("username")
     });
 
     await localStorage.setItem("posts", JSON.stringify(this.state.posts));

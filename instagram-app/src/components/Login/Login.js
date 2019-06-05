@@ -15,12 +15,16 @@ class Login extends React.Component {
     };
   }
   handleChage = event =>
-    this.setState({ ...this.state, [event.target.name]: event.target.value });
+    this.setState({
+      ...this.state,
+      data: { ...this.state.data, [event.target.name]: event.target.value }
+    });
 
   login = async event => {
     event.preventDefault();
-    const { username, password } = this.state;
-    if (username === "Awa" && password === "melvine") {
+    const { username } = this.state.data;
+
+    if (username.length > 3) {
       await localStorage.setItem("username", username);
       await this.setState({
         ...this.state,
@@ -40,7 +44,8 @@ class Login extends React.Component {
   };
 
   render() {
-    const { username, password, message, msgClass } = this.state;
+    const { data, message, msgClass } = this.state;
+    const { username, password } = data;
     return (
       <form onSubmit={event => this.login(event)}>
         <p className={msgClass}>{message}</p>
