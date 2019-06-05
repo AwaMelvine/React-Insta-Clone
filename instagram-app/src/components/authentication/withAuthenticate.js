@@ -16,7 +16,7 @@ function withAuthenticate(Component) {
       });
     }
     render() {
-      return <Component {...this.props} />;
+      return <Component isAuthed={this.state.isAuthed} {...this.props} />;
     }
   };
 }

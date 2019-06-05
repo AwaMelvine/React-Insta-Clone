@@ -6,8 +6,6 @@ import dummyData from "./dummy-data";
 import PostsPage from "./components/PostContainer/PostsPage";
 import withAuthenticate from "./components/authentication/withAuthenticate";
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +28,7 @@ class App extends Component {
 
     await this.setState({
       ...this.state,
-      posts: savedPosts.length > 0 ? savedPosts : posts
+      posts: savedPosts ? savedPosts : posts
     });
 
     await localStorage.setItem("posts", JSON.stringify(this.state.posts));
@@ -122,6 +120,8 @@ class App extends Component {
   };
   render() {
     const { posts } = this.state;
+    const ComponentFromWithAuthenticate = withAuthenticate(PostsPage);
+
     return (
       <ComponentFromWithAuthenticate
         text="Instagram"
