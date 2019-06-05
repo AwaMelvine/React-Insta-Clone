@@ -1,11 +1,11 @@
-form {
+form.login-form {
   width: 40%;
   margin: 10rem auto;
   text-align: center;
 }
 
-form input,
-form button {
+form.login-form input,
+form.login-form button {
   text-align: center;
   display: block;
   width: 100%;

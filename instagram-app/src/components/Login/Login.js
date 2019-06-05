@@ -47,7 +47,7 @@ class Login extends React.Component {
     const { data, message, msgClass } = this.state;
     const { username, password } = data;
     return (
-      <form onSubmit={event => this.login(event)}>
+      <form onSubmit={event => this.login(event)} className="login-form">
         <p className={msgClass}>{message}</p>
         <input
           type="text"
