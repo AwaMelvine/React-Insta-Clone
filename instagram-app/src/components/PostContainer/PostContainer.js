@@ -5,13 +5,14 @@ import PostComments from "../CommentSection/PostComments";
 import styled from "styled-components";
 
 const Post = styled.div`
-  display: ${props => props.display};
   width: 100%;
   background: white;
   display: flex;
   flex-direction: column;
   border: 1px solid #ebebeb;
   margin: 2rem auto 2rem;
+
+  ${props => (props.display ? `display: block;` : `display: none;`)};
 
   .user-info {
     display: flex;
@@ -61,7 +62,7 @@ const PostContainer = ({
   handleLikePost
 }) => {
   return (
-    <Post display={!post.display ? "none" : "block"}>
+    <Post display={post.display}>
       <PostBody
         thumbnailUrl={post.thumbnailUrl}
         thumbnailAlt={post.thumbnailAlt}
