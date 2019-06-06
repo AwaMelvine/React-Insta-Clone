@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
 import UserNavItems from "./UserNavItems";
-import "./SearchBar.css";
 import styled from "styled-components";
 
 const Header = styled.div`
@@ -19,19 +18,6 @@ const Header = styled.div`
     display: inline;
     margin: 0px;
     padding: 0px;
-  }
-
-  .search-input {
-    width: 350px;
-
-    input {
-      width: 60%;
-      text-align: center;
-      padding: 0.5rem;
-      border: 1px solid #999999;
-      border-radius: 5px;
-      outline: none;
-    }
   }
 
   .user-nav-items {
