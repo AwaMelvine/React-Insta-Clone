@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import "./CommentSection.css";
@@ -39,7 +40,9 @@ class PostComments extends Component {
             handleDeleteComment={this.props.handleDeleteComment}
           />
         ))}
-        <p className="date">{date}</p>
+        <p className="date">
+          {moment(date, "MMMM Do YYYY, h:mm:ss a").fromNow()}
+        </p>
         <CommentForm
           postId={postId}
           commentText={commentText}
