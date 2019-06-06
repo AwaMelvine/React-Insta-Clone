@@ -16,16 +16,26 @@ const LogoHeader = styled.div`
   font-family: "Oleo Script", cursive;
   font-size: 2rem;
 `;
+const LogoWrapper = styled.div`
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: block;
+    height: 1.5rem;
+    border-left: 1px solid gray;
+    margin: 0px 1.3rem;
+  }
+`;
 
 const Logo = ({ text }) => (
-  <div className="logo">
-    <div className="logo-img">
-      <FiInstagram size={"1.6rem"} />
-    </div>
-
+  <LogoWrapper>
+    <FiInstagram size={"1.6rem"} />
     <span />
     <LogoHeader>{text}</LogoHeader>
-  </div>
+  </LogoWrapper>
 );
 
 Logo.propTypes = propTypes;

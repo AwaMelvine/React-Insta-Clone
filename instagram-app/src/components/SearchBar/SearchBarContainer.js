@@ -20,19 +20,6 @@ const Header = styled.div`
     margin: 0px;
     padding: 0px;
   }
-  .logo {
-    width: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    span {
-      display: block;
-      height: 1.5rem;
-      border-left: 1px solid gray;
-      margin: 0px 1.3rem;
-    }
-  }
 
   .search-input {
     width: 350px;
