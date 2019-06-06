@@ -6,6 +6,63 @@ import styled from "styled-components";
 
 const Post = styled.div`
   display: ${props => props.display};
+  width: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ebebeb;
+  margin: 2rem auto 2rem;
+
+  .user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      padding: 1rem;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .post-image img {
+    width: 100%;
+  }
+
+  .post-comments {
+    padding: 1rem;
+
+    .comment {
+      margin: 0.5rem 0rem;
+      p {
+        margin: 0px;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .post-info {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 0rem 1rem;
+
+    .icons {
+      display: flex;
+
+      .heart,
+      .comments {
+        font-size: 2rem;
+        margin-right: 0.8rem;
+        color: #444;
+      }
+    }
+  }
 `;
 
 const PostContainer = ({

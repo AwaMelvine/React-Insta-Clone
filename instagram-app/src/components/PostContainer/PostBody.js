@@ -2,6 +2,7 @@ import React from "react";
 import { TiHeartOutline } from "react-icons/ti";
 import { FiMessageCircle } from "react-icons/fi";
 import PropTypes from "prop-types";
+import { Username } from "../../Styles/Reusables/Username";
 
 const PostBody = ({
   thumbnailUrl,
@@ -15,7 +16,8 @@ const PostBody = ({
 }) => (
   <div className="post-body">
     <div className="user-info">
-      <img src={thumbnailUrl} alt={thumbnailAlt} /> <span>{username}</span>
+      <img src={thumbnailUrl} alt={thumbnailAlt} />{" "}
+      <Username fontWeight="bold">{username}</Username>
     </div>
     <div className="post-image">
       <img src={imageUrl} alt={imageAlt} />
