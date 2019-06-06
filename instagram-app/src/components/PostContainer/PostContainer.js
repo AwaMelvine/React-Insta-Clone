@@ -2,6 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import PostBody from "./PostBody";
 import PostComments from "../CommentSection/PostComments";
+import styled from "styled-components";
+
+const Post = styled.div`
+  display: ${props => props.display};
+`;
 
 const PostContainer = ({
   post,
@@ -9,9 +14,8 @@ const PostContainer = ({
   handleDeleteComment,
   handleLikePost
 }) => {
-  const dispStyle = !post.display ? "none" : "block";
   return (
-    <div className="post" style={{ display: dispStyle }}>
+    <Post display={!post.display ? "none" : "block"}>
       <PostBody
         thumbnailUrl={post.thumbnailUrl}
         thumbnailAlt={post.thumbnailAlt}
@@ -29,7 +33,7 @@ const PostContainer = ({
         handleSubmitComment={handleSubmitComment}
         handleDeleteComment={handleDeleteComment}
       />
-    </div>
+    </Post>
   );
 };
 PostContainer.propTypes = {
