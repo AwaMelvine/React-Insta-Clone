@@ -1,0 +1,24 @@
+form.login-form {
+  width: 40%;
+  margin: 10rem auto;
+  text-align: center;
+}
+
+form.login-form input,
+form.login-form button {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.failure {
+  color: red;
+}
+
+.success {
+  color: green;
+}

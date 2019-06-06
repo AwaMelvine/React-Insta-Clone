@@ -3,8 +3,9 @@ import uuidv1 from "uuid/v1";
 import Fuse from "fuse.js";
 import "./App.css";
 import dummyData from "./dummy-data";
-import SearchBarContainer from "./components/SearchBar/SearchBarContainer";
-import PostList from "./components/PostContainer/PostList";
+import PostsPage from "./components/PostContainer/PostsPage";
+import withAuthenticate from "./components/authentication/withAuthenticate";
+import Login from "./components/Login/Login";
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class App extends Component {
 
     this.state = {
       posts: [],
-      username: "Awa",
+      username: "",
       commentText: ""
     };
   }
@@ -28,7 +29,8 @@ class App extends Component {
 
     await this.setState({
       ...this.state,
-      posts: savedPosts.length > 0 ? savedPosts : posts
+      posts: savedPosts ? savedPosts : posts,
+      username: localStorage.getItem("username")
     });
 
     await localStorage.setItem("posts", JSON.stringify(this.state.posts));
@@ -120,19 +122,17 @@ class App extends Component {
   };
   render() {
     const { posts } = this.state;
+    const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
+
     return (
-      <div className="App">
-        <SearchBarContainer
-          text="Instagram"
-          handleSearchInput={this.handleSearchInput}
-        />
-        <PostList
-          posts={posts}
-          handleSubmitComment={this.handleSubmitComment}
-          handleDeleteComment={this.handleDeleteComment}
-          handleLikePost={this.handleLikePost}
-        />
-      </div>
+      <ComponentFromWithAuthenticate
+        text="Instagram"
+        handleSearchInput={this.handleSearchInput}
+        posts={posts}
+        handleSubmitComment={this.handleSubmitComment}
+        handleDeleteComment={this.handleDeleteComment}
+        handleLikePost={this.handleLikePost}
+      />
     );
   }
 }
