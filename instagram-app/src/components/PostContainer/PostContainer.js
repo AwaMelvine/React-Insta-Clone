@@ -17,17 +17,6 @@ const Post = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
-    img {
-      height: 60px;
-      width: 60px;
-      border-radius: 50%;
-      padding: 1rem;
-    }
-
-    span {
-      font-weight: bold;
-    }
   }
 
   .post-image img {
