@@ -76,7 +76,6 @@ class App extends Component {
     await localStorage.setItem("posts", JSON.stringify(this.state.posts));
   };
   handleSearchInput = event => {
-    console.log(event.target.value);
     const options = {
       shouldSort: true,
       threshold: 0.6,
@@ -91,6 +90,8 @@ class App extends Component {
       event.target.value === ""
         ? this.state.posts
         : fuse.search(event.target.value);
+
+    console.log(result);
 
     this.setState({
       ...this.state,

@@ -60,8 +60,9 @@ const PostContainer = ({
   handleDeleteComment,
   handleLikePost
 }) => {
+  const display = !post.display ? "none" : "block";
   return (
-    <Post display={!post.display ? "none" : "block"}>
+    <Post style={{ display }}>
       <PostBody
         thumbnailUrl={post.thumbnailUrl}
         thumbnailAlt={post.thumbnailAlt}
