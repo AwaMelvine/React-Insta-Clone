@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Username } from "../../Styles/Reusables/Username";
 
 const Comment = ({ postId, comment, handleDeleteComment }) => {
   return (
     <div className="comment">
       <p>
-        <span>{comment.username}</span> {comment.text}
+        <Username fontWeight="lighter">
+          {comment.username}
+        </Username>{" "}
+        {comment.text}
         <span
           className="delete"
           onClick={event => handleDeleteComment(postId, comment.id)}
