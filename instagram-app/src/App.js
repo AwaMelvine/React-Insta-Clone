@@ -7,6 +7,7 @@ import PostsPage from "./components/PostContainer/PostsPage";
 import withAuthenticate from "./components/authentication/withAuthenticate";
 import Login from "./components/Login/Login";
 
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 class App extends Component {
   constructor(props) {
     super(props);
@@ -74,7 +75,7 @@ class App extends Component {
     });
     await localStorage.setItem("posts", JSON.stringify(this.state.posts));
   };
-  handleSearchInput = async event => {
+  handleSearchInput = event => {
     const options = {
       shouldSort: true,
       threshold: 0.6,
@@ -90,7 +91,9 @@ class App extends Component {
         ? this.state.posts
         : fuse.search(event.target.value);
 
-    await this.setState({
+    console.log(result);
+
+    this.setState({
       ...this.state,
       posts: this.state.posts.map(post => {
         const resultIds = result.map(res => res.id);
@@ -122,7 +125,6 @@ class App extends Component {
   };
   render() {
     const { posts } = this.state;
-    const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login);
 
     return (
       <ComponentFromWithAuthenticate
